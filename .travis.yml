@@ -3,25 +3,9 @@ language: cpp
 
 script:
  - mkdir build && cd build
- - cmake ..
+ - cmake .. -DCMAKE_CXX_COMPILER=$CMAKE_CXX_COMPILER
  - cmake --build .
  - ./hello
-
-env:
- -COMPILER=g++-6
-
-addons:
- apt:
-  sources:
-  - ubuntu-toolchain-r-test
-  - llvm-toolchain-trusty-3.9
-  - llvm-toolchain-trusty-4.0
-  packages:
-  - g++-4.9
-  - g++-5
-  - g++-6
-  - clang-3.9
-  - clang-4.0
 
 matrix:
  include:
